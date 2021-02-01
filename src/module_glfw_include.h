@@ -1,0 +1,7 @@
+#pragma once
+
+#include <GLFW/glfw3.h>
+
+MAKE_EXTERNAL_TYPE_FACTORY(GLFWmonitor,GLFWmonitor);
+MAKE_EXTERNAL_TYPE_FACTORY(GLFWwindow,GLFWwindow);
+MAKE_EXTERNAL_TYPE_FACTORY(GLFWcursor,GLFWcursor);
