@@ -28,7 +28,9 @@ def main
         "operator delete";
         "operator new";
         "glfwDestroyWindow";        // we overwrite with custom one
-        "___report_gsfailure"       // straight up not necessary
+        "___report_gsfailure";      // straight up not necessary
+        "__security_init_cookie";
+        "__security_check_cookie"
     }]
 
 /*

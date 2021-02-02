@@ -640,8 +640,6 @@ addExtern<DAS_BIND_FUN(glfwSetFramebufferSizeCallback)>(*this, lib, "glfwSetFram
 	->args({"window","callback"});
 addExtern<DAS_BIND_FUN(glFrustum)>(*this, lib, "glFrustum",SideEffects::worstDefault, "glFrustum")
 	->args({"left","right","bottom","top","zNear","zFar"});
-addExtern<DAS_BIND_FUN(__security_init_cookie)>(*this, lib, "__security_init_cookie",SideEffects::worstDefault, "__security_init_cookie")
-	->args({});
 addExtern<DAS_BIND_FUN(glVertex2fv)>(*this, lib, "glVertex2fv",SideEffects::worstDefault, "glVertex2fv")
 	->args({"v"});
 addExtern<DAS_BIND_FUN(glEvalMesh2)>(*this, lib, "glEvalMesh2",SideEffects::worstDefault, "glEvalMesh2")
@@ -656,8 +654,6 @@ addExtern<DAS_BIND_FUN(glFogiv)>(*this, lib, "glFogiv",SideEffects::worstDefault
 	->args({"pname","params"});
 addExtern<DAS_BIND_FUN(glGetString)>(*this, lib, "glGetString",SideEffects::worstDefault, "glGetString")
 	->args({"name"});
-addExtern<DAS_BIND_FUN(__security_check_cookie)>(*this, lib, "__security_check_cookie",SideEffects::worstDefault, "__security_check_cookie")
-	->args({"_StackCookie"});
 addExtern<DAS_BIND_FUN(glfwDestroyCursor)>(*this, lib, "glfwDestroyCursor",SideEffects::worstDefault, "glfwDestroyCursor")
 	->args({"cursor"});
 addExtern<DAS_BIND_FUN(glColor3ui)>(*this, lib, "glColor3ui",SideEffects::worstDefault, "glColor3ui")
