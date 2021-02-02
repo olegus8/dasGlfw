@@ -37,20 +37,6 @@ public:
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWmonitor", "GLFWmonitor",1,1));
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWwindow", "GLFWwindow",1,1));
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWcursor", "GLFWcursor",1,1));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWcharfun", "GLFWcharfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWkeyfun", "GLFWkeyfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWmonitorfun", "GLFWmonitorfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWscrollfun", "GLFWscrollfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWcharmodsfun", "GLFWcharmodsfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWjoystickfun", "GLFWjoystickfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWwindowcontentscalefun", "GLFWwindowcontentscalefun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWmousebuttonfun", "GLFWmousebuttonfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWerrorfun", "GLFWerrorfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWwindowfocusfun", "GLFWwindowfocusfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWwindowclosefun", "GLFWwindowclosefun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWwindowsizefun", "GLFWwindowsizefun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWdropfun", "GLFWdropfun"));
-        addAnnotation(make_smart<GlfwCallbackFnAnnotation>("GLFWglproc", "GLFWglproc"));
     }
     bool initialized = false;
     virtual bool initDependencies() override {

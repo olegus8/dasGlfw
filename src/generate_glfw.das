@@ -7,14 +7,24 @@ require daslib/cpp_gen
 [export]
 def main
     // configure
-/*
     blocked_type_names <- [{auto[]
-        "ImVector";
-        "ImGuiStoragePair";
-        "ImDrawListSharedData";
-        "ImGuiInputTextCallback"
+        "GLFWcharfun";
+        "GLFWkeyfun";
+        "GLFWmonitorfun";
+        "GLFWscrollfun";
+        "GLFWcharmodsfun";
+        "GLFWjoystickfun";
+        "GLFWwindowcontentscalefun";
+        "GLFWmousebuttonfun";
+        "GLFWerrorfun";
+        "GLFWwindowfocusfun";
+        "GLFWwindowclosefun";
+        "GLFWwindowsizefun";
+        "GLFWdropfun";
+        "GLFWglproc"
     }]
 
+/*
     blocked_functions <- [{auto[]
         "operator delete";
         "operator new"

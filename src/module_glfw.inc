@@ -152,7 +152,6 @@ addExtern<DAS_BIND_FUN(glDrawArrays)>(*this, lib, "glDrawArrays",SideEffects::wo
 addExtern<DAS_BIND_FUN(glEvalCoord1fv)>(*this, lib, "glEvalCoord1fv",SideEffects::worstDefault, "glEvalCoord1fv");
 addExtern<DAS_BIND_FUN(glfwGetWindowFrameSize)>(*this, lib, "glfwGetWindowFrameSize",SideEffects::worstDefault, "glfwGetWindowFrameSize");
 addExtern<DAS_BIND_FUN(glfwSwapBuffers)>(*this, lib, "glfwSwapBuffers",SideEffects::worstDefault, "glfwSwapBuffers");
-addExtern<DAS_BIND_FUN(glfwSetCharCallback)>(*this, lib, "glfwSetCharCallback",SideEffects::worstDefault, "glfwSetCharCallback");
 addExtern<DAS_BIND_FUN(glColor4dv)>(*this, lib, "glColor4dv",SideEffects::worstDefault, "glColor4dv");
 addExtern<DAS_BIND_FUN(glNormal3d)>(*this, lib, "glNormal3d",SideEffects::worstDefault, "glNormal3d");
 addExtern<DAS_BIND_FUN(glTexSubImage2D)>(*this, lib, "glTexSubImage2D",SideEffects::worstDefault, "glTexSubImage2D");
@@ -168,7 +167,6 @@ addExtern<DAS_BIND_FUN(glNormal3dv)>(*this, lib, "glNormal3dv",SideEffects::wors
 addExtern<DAS_BIND_FUN(glfwGetWindowContentScale)>(*this, lib, "glfwGetWindowContentScale",SideEffects::worstDefault, "glfwGetWindowContentScale");
 addExtern<DAS_BIND_FUN(glGetFloatv)>(*this, lib, "glGetFloatv",SideEffects::worstDefault, "glGetFloatv");
 addExtern<DAS_BIND_FUN(glfwGetWindowOpacity)>(*this, lib, "glfwGetWindowOpacity",SideEffects::worstDefault, "glfwGetWindowOpacity");
-addExtern<DAS_BIND_FUN(glfwSetKeyCallback)>(*this, lib, "glfwSetKeyCallback",SideEffects::worstDefault, "glfwSetKeyCallback");
 addExtern<DAS_BIND_FUN(glVertex2iv)>(*this, lib, "glVertex2iv",SideEffects::worstDefault, "glVertex2iv");
 addExtern<DAS_BIND_FUN(glGetMapfv)>(*this, lib, "glGetMapfv",SideEffects::worstDefault, "glGetMapfv");
 addExtern<DAS_BIND_FUN(glIndexdv)>(*this, lib, "glIndexdv",SideEffects::worstDefault, "glIndexdv");
@@ -190,11 +188,9 @@ addExtern<DAS_BIND_FUN(glTexCoord3fv)>(*this, lib, "glTexCoord3fv",SideEffects::
 addExtern<DAS_BIND_FUN(glVertex2s)>(*this, lib, "glVertex2s",SideEffects::worstDefault, "glVertex2s");
 addExtern<DAS_BIND_FUN(glfwRawMouseMotionSupported)>(*this, lib, "glfwRawMouseMotionSupported",SideEffects::worstDefault, "glfwRawMouseMotionSupported");
 addExtern<DAS_BIND_FUN(glMapGrid2f)>(*this, lib, "glMapGrid2f",SideEffects::worstDefault, "glMapGrid2f");
-addExtern<DAS_BIND_FUN(glfwSetMonitorCallback)>(*this, lib, "glfwSetMonitorCallback",SideEffects::worstDefault, "glfwSetMonitorCallback");
 addExtern<DAS_BIND_FUN(glfwSetTime)>(*this, lib, "glfwSetTime",SideEffects::worstDefault, "glfwSetTime");
 addExtern<DAS_BIND_FUN(glOrtho)>(*this, lib, "glOrtho",SideEffects::worstDefault, "glOrtho");
 addExtern<DAS_BIND_FUN(glfwGetWindowAttrib)>(*this, lib, "glfwGetWindowAttrib",SideEffects::worstDefault, "glfwGetWindowAttrib");
-addExtern<DAS_BIND_FUN(glfwSetScrollCallback)>(*this, lib, "glfwSetScrollCallback",SideEffects::worstDefault, "glfwSetScrollCallback");
 addExtern<DAS_BIND_FUN(glfwPostEmptyEvent)>(*this, lib, "glfwPostEmptyEvent",SideEffects::worstDefault, "glfwPostEmptyEvent");
 addExtern<DAS_BIND_FUN(glRasterPos2i)>(*this, lib, "glRasterPos2i",SideEffects::worstDefault, "glRasterPos2i");
 addExtern<DAS_BIND_FUN(glVertex3f)>(*this, lib, "glVertex3f",SideEffects::worstDefault, "glVertex3f");
@@ -268,7 +264,6 @@ addExtern<DAS_BIND_FUN(glfwJoystickPresent)>(*this, lib, "glfwJoystickPresent",S
 addExtern<DAS_BIND_FUN(glColor3bv)>(*this, lib, "glColor3bv",SideEffects::worstDefault, "glColor3bv");
 addExtern<DAS_BIND_FUN(glGetPointerv)>(*this, lib, "glGetPointerv",SideEffects::worstDefault, "glGetPointerv");
 addExtern<DAS_BIND_FUN(glNormal3fv)>(*this, lib, "glNormal3fv",SideEffects::worstDefault, "glNormal3fv");
-addExtern<DAS_BIND_FUN(glfwSetCharModsCallback)>(*this, lib, "glfwSetCharModsCallback",SideEffects::worstDefault, "glfwSetCharModsCallback");
 addExtern<DAS_BIND_FUN(glColor3fv)>(*this, lib, "glColor3fv",SideEffects::worstDefault, "glColor3fv");
 addExtern<DAS_BIND_FUN(glShadeModel)>(*this, lib, "glShadeModel",SideEffects::worstDefault, "glShadeModel");
 addExtern<DAS_BIND_FUN(glPushAttrib)>(*this, lib, "glPushAttrib",SideEffects::worstDefault, "glPushAttrib");
@@ -333,7 +328,6 @@ addExtern<DAS_BIND_FUN(glGetLightfv)>(*this, lib, "glGetLightfv",SideEffects::wo
 addExtern<DAS_BIND_FUN(glFrontFace)>(*this, lib, "glFrontFace",SideEffects::worstDefault, "glFrontFace");
 addExtern<DAS_BIND_FUN(glVertex4i)>(*this, lib, "glVertex4i",SideEffects::worstDefault, "glVertex4i");
 addExtern<DAS_BIND_FUN(glInitNames)>(*this, lib, "glInitNames",SideEffects::worstDefault, "glInitNames");
-addExtern<DAS_BIND_FUN(glfwSetJoystickCallback)>(*this, lib, "glfwSetJoystickCallback",SideEffects::worstDefault, "glfwSetJoystickCallback");
 addExtern<DAS_BIND_FUN(glCopyTexImage2D)>(*this, lib, "glCopyTexImage2D",SideEffects::worstDefault, "glCopyTexImage2D");
 addExtern<DAS_BIND_FUN(glfwGetGammaRamp)>(*this, lib, "glfwGetGammaRamp",SideEffects::worstDefault, "glfwGetGammaRamp");
 addExtern<DAS_BIND_FUN(glfwSetFramebufferSizeCallback)>(*this, lib, "glfwSetFramebufferSizeCallback",SideEffects::worstDefault, "glfwSetFramebufferSizeCallback");
@@ -344,7 +338,6 @@ addExtern<DAS_BIND_FUN(glEvalMesh2)>(*this, lib, "glEvalMesh2",SideEffects::wors
 addExtern<DAS_BIND_FUN(glGetTexParameteriv)>(*this, lib, "glGetTexParameteriv",SideEffects::worstDefault, "glGetTexParameteriv");
 addExtern<DAS_BIND_FUN(glColor3usv)>(*this, lib, "glColor3usv",SideEffects::worstDefault, "glColor3usv");
 addExtern<DAS_BIND_FUN(glPopName)>(*this, lib, "glPopName",SideEffects::worstDefault, "glPopName");
-addExtern<DAS_BIND_FUN(glfwSetWindowContentScaleCallback)>(*this, lib, "glfwSetWindowContentScaleCallback",SideEffects::worstDefault, "glfwSetWindowContentScaleCallback");
 addExtern<DAS_BIND_FUN(glFogiv)>(*this, lib, "glFogiv",SideEffects::worstDefault, "glFogiv");
 addExtern<DAS_BIND_FUN(glGetString)>(*this, lib, "glGetString",SideEffects::worstDefault, "glGetString");
 addExtern<DAS_BIND_FUN(__security_check_cookie)>(*this, lib, "__security_check_cookie",SideEffects::worstDefault, "__security_check_cookie");
@@ -360,7 +353,6 @@ addExtern<DAS_BIND_FUN(glfwFocusWindow)>(*this, lib, "glfwFocusWindow",SideEffec
 addExtern<DAS_BIND_FUN(glDisableClientState)>(*this, lib, "glDisableClientState",SideEffects::worstDefault, "glDisableClientState");
 addExtern<DAS_BIND_FUN(glFlush)>(*this, lib, "glFlush",SideEffects::worstDefault, "glFlush");
 addExtern<DAS_BIND_FUN(glfwGetError)>(*this, lib, "glfwGetError",SideEffects::worstDefault, "glfwGetError");
-addExtern<DAS_BIND_FUN(glfwSetMouseButtonCallback)>(*this, lib, "glfwSetMouseButtonCallback",SideEffects::worstDefault, "glfwSetMouseButtonCallback");
 addExtern<DAS_BIND_FUN(glEvalCoord2d)>(*this, lib, "glEvalCoord2d",SideEffects::worstDefault, "glEvalCoord2d");
 addExtern<DAS_BIND_FUN(glfwGetJoystickHats)>(*this, lib, "glfwGetJoystickHats",SideEffects::worstDefault, "glfwGetJoystickHats");
 addExtern<DAS_BIND_FUN(glTexCoord1iv)>(*this, lib, "glTexCoord1iv",SideEffects::worstDefault, "glTexCoord1iv");
@@ -396,18 +388,15 @@ addExtern<DAS_BIND_FUN(glTexCoord2sv)>(*this, lib, "glTexCoord2sv",SideEffects::
 addExtern<DAS_BIND_FUN(glRectf)>(*this, lib, "glRectf",SideEffects::worstDefault, "glRectf");
 addExtern<DAS_BIND_FUN(glDisable)>(*this, lib, "glDisable",SideEffects::worstDefault, "glDisable");
 addExtern<DAS_BIND_FUN(glColor4sv)>(*this, lib, "glColor4sv",SideEffects::worstDefault, "glColor4sv");
-addExtern<DAS_BIND_FUN(glfwSetErrorCallback)>(*this, lib, "glfwSetErrorCallback",SideEffects::worstDefault, "glfwSetErrorCallback");
 addExtern<DAS_BIND_FUN(glMap1d)>(*this, lib, "glMap1d",SideEffects::worstDefault, "glMap1d");
 addExtern<DAS_BIND_FUN(glLightf)>(*this, lib, "glLightf",SideEffects::worstDefault, "glLightf");
 addExtern<DAS_BIND_FUN(glLightfv)>(*this, lib, "glLightfv",SideEffects::worstDefault, "glLightfv");
 addExtern<DAS_BIND_FUN(glNormal3sv)>(*this, lib, "glNormal3sv",SideEffects::worstDefault, "glNormal3sv");
 addExtern<DAS_BIND_FUN(glfwRestoreWindow)>(*this, lib, "glfwRestoreWindow",SideEffects::worstDefault, "glfwRestoreWindow");
-addExtern<DAS_BIND_FUN(glfwSetWindowFocusCallback)>(*this, lib, "glfwSetWindowFocusCallback",SideEffects::worstDefault, "glfwSetWindowFocusCallback");
 addExtern<DAS_BIND_FUN(glGetTexEnvfv)>(*this, lib, "glGetTexEnvfv",SideEffects::worstDefault, "glGetTexEnvfv");
 addExtern<DAS_BIND_FUN(glfwIconifyWindow)>(*this, lib, "glfwIconifyWindow",SideEffects::worstDefault, "glfwIconifyWindow");
 addExtern<DAS_BIND_FUN(glIndexi)>(*this, lib, "glIndexi",SideEffects::worstDefault, "glIndexi");
 addExtern<DAS_BIND_FUN(glNormalPointer)>(*this, lib, "glNormalPointer",SideEffects::worstDefault, "glNormalPointer");
-addExtern<DAS_BIND_FUN(glfwSetWindowCloseCallback)>(*this, lib, "glfwSetWindowCloseCallback",SideEffects::worstDefault, "glfwSetWindowCloseCallback");
 addExtern<DAS_BIND_FUN(__report_gsfailure)>(*this, lib, "__report_gsfailure",SideEffects::worstDefault, "__report_gsfailure");
 addExtern<DAS_BIND_FUN(glLoadMatrixd)>(*this, lib, "glLoadMatrixd",SideEffects::worstDefault, "glLoadMatrixd");
 addExtern<DAS_BIND_FUN(glVertex3s)>(*this, lib, "glVertex3s",SideEffects::worstDefault, "glVertex3s");
@@ -443,7 +432,6 @@ addExtern<DAS_BIND_FUN(glGetTexGenfv)>(*this, lib, "glGetTexGenfv",SideEffects::
 addExtern<DAS_BIND_FUN(glIndexiv)>(*this, lib, "glIndexiv",SideEffects::worstDefault, "glIndexiv");
 addExtern<DAS_BIND_FUN(glRasterPos4f)>(*this, lib, "glRasterPos4f",SideEffects::worstDefault, "glRasterPos4f");
 addExtern<DAS_BIND_FUN(glTexEnvf)>(*this, lib, "glTexEnvf",SideEffects::worstDefault, "glTexEnvf");
-addExtern<DAS_BIND_FUN(glfwSetWindowSizeCallback)>(*this, lib, "glfwSetWindowSizeCallback",SideEffects::worstDefault, "glfwSetWindowSizeCallback");
 addExtern<DAS_BIND_FUN(glTexGeni)>(*this, lib, "glTexGeni",SideEffects::worstDefault, "glTexGeni");
 addExtern<DAS_BIND_FUN(glGetMapdv)>(*this, lib, "glGetMapdv",SideEffects::worstDefault, "glGetMapdv");
 addExtern<DAS_BIND_FUN(glColor3uiv)>(*this, lib, "glColor3uiv",SideEffects::worstDefault, "glColor3uiv");
@@ -454,7 +442,6 @@ addExtern<DAS_BIND_FUN(glRasterPos4i)>(*this, lib, "glRasterPos4i",SideEffects::
 addExtern<DAS_BIND_FUN(glCallList)>(*this, lib, "glCallList",SideEffects::worstDefault, "glCallList");
 addExtern<DAS_BIND_FUN(glDepthMask)>(*this, lib, "glDepthMask",SideEffects::worstDefault, "glDepthMask");
 addExtern<DAS_BIND_FUN(glPolygonStipple)>(*this, lib, "glPolygonStipple",SideEffects::worstDefault, "glPolygonStipple");
-addExtern<DAS_BIND_FUN(glfwSetDropCallback)>(*this, lib, "glfwSetDropCallback",SideEffects::worstDefault, "glfwSetDropCallback");
 addExtern<DAS_BIND_FUN(glGetTexGendv)>(*this, lib, "glGetTexGendv",SideEffects::worstDefault, "glGetTexGendv");
 addExtern<DAS_BIND_FUN(glLoadName)>(*this, lib, "glLoadName",SideEffects::worstDefault, "glLoadName");
 addExtern<DAS_BIND_FUN(glfwCreateStandardCursor)>(*this, lib, "glfwCreateStandardCursor",SideEffects::worstDefault, "glfwCreateStandardCursor");
