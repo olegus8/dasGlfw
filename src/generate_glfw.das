@@ -27,7 +27,8 @@ def main
     blocked_functions <- [{auto[]
         "operator delete";
         "operator new";
-        "glfwDestroyWindow"         // we overwrite with custom one
+        "glfwDestroyWindow";        // we overwrite with custom one
+        "___report_gsfailure"       // straight up not necessary
     }]
 
 /*
