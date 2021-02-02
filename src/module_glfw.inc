@@ -454,7 +454,6 @@ addExtern<DAS_BIND_FUN(glRectfv)>(*this, lib, "glRectfv",SideEffects::worstDefau
 addExtern<DAS_BIND_FUN(glTexCoord1s)>(*this, lib, "glTexCoord1s",SideEffects::worstDefault, "glTexCoord1s");
 addExtern<DAS_BIND_FUN(glfwGetKey)>(*this, lib, "glfwGetKey",SideEffects::worstDefault, "glfwGetKey");
 addExtern<DAS_BIND_FUN(glMapGrid2d)>(*this, lib, "glMapGrid2d",SideEffects::worstDefault, "glMapGrid2d");
-addExtern<DAS_BIND_FUN(glfwDestroyWindow)>(*this, lib, "glfwDestroyWindow",SideEffects::worstDefault, "glfwDestroyWindow");
 addExtern<DAS_BIND_FUN(glNormal3i)>(*this, lib, "glNormal3i",SideEffects::worstDefault, "glNormal3i");
 addExtern<DAS_BIND_FUN(glRasterPos4fv)>(*this, lib, "glRasterPos4fv",SideEffects::worstDefault, "glRasterPos4fv");
 addExtern<DAS_BIND_FUN(glfwGetGamepadState)>(*this, lib, "glfwGetGamepadState",SideEffects::worstDefault, "glfwGetGamepadState");

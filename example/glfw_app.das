@@ -3,6 +3,9 @@ require daslib/safe_addr
 require daslib/defer
 require math
 
+var mouse_x = 0.
+var mouse_y = 0.
+
 def glfw_app ( title:string; blk : block<(w,h:int):void> )
     if glfwInit()==0
 		panic("can't init glfw")
@@ -14,7 +17,19 @@ def glfw_app ( title:string; blk : block<(w,h:int):void> )
     defer <|
         glfwDestroyWindow(window)
     glfwSetKeyCallback(window) <| @ ( window, key, scancode, action, mods )
-        print("{window} {key} {scancode} {action} {mods}\n")
+        print("keyCB:  {window} {key} {scancode} {action} {mods}\n")
+    glfwSetCharCallback(window) <| @ ( window, ch )
+        print("charCB: {window} {ch}\n")
+    glfwSetCursorPosCallback(window) <| @ ( window, x, y )
+        print("cursCB: {window} {x} {y}\n")
+        mouse_x = float(x)
+        mouse_y = float(y)
+    glfwSetCursorEnterCallback(window) <| @ ( window, enter )
+        print("centCB: {window} {enter}\n")
+    glfwSetMouseButtonCallback(window) <| @ ( window, buttons, action, mods )
+        print("mbutCB:  {window} {buttons} {action} {mods}\n")
+    glfwSetScrollCallback(window) <| @ ( window, x, y )
+        print("scrlCB: {window} {x} {y}\n")
     glfwMakeContextCurrent(window)
     while glfwWindowShouldClose(window)==0
         glfwPollEvents()
@@ -63,12 +78,15 @@ def main
 
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
-        glTranslatef(1.5f, 0.0f, -7.0f)
-        glRotatef(rot_cube,0.0,1.0,0.0)
+        glTranslatef(2.5f, 0.0f, -7.0f)
         glRotatef(rot_tri * 0.25,1.0,0.0,0.0)
+        glRotatef(rot_cube,0.0,1.0,0.0)
         rot_cube += 1.0
         if rot_cube > 360.
             rot_cube -= 360.
+        rot_tri += 0.5
+        if rot_tri > 360.
+            rot_tri -= 360.
 
         glBeginEnd(GL_QUADS) <|
             glColor3f(0.0f, 1.0f, 0.0f)
@@ -103,11 +121,9 @@ def main
             glVertex3f(1.0f, -1.0f, -1.0f)
 
         glLoadIdentity()
-        glTranslatef(-1.5f, 0.0f, -6.0f)
-        glRotatef(rot_tri,1.0,1.0,0.0)
-        rot_tri += 0.5
-        if rot_tri > 360.
-            rot_tri -= 360.
+        glTranslatef(-2.5f, 0.0f, -6.0f)
+        glRotatef(mouse_y,1.0,0.0,0.0)
+        glRotatef(-mouse_x,0.0,1.0,0.0)
 
         glBeginEnd(GL_TRIANGLES) <|
             glColor3f(1.0f, 0.0f, 0.0f)

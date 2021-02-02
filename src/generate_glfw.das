@@ -24,12 +24,13 @@ def main
         "GLFWglproc"
     }]
 
-/*
     blocked_functions <- [{auto[]
         "operator delete";
-        "operator new"
+        "operator new";
+        "glfwDestroyWindow"         // we overwrite with custom one
     }]
 
+/*
     cmres_functions <- [{auto[]
         "ImGui_ImplVulkanH_SelectSurfaceFormat"
     }]
