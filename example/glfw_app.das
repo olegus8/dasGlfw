@@ -13,6 +13,8 @@ def glfw_app ( title:string; blk : block<(w,h:int):void> )
 		panic("can't create window")
     defer <|
         glfwDestroyWindow(window)
+    glfwSetKeyCallback(window) <| @ ( window, key, scancode, action, mods )
+        print("{window} {key} {scancode} {action} {mods}\n")
     glfwMakeContextCurrent(window)
     while glfwWindowShouldClose(window)==0
         glfwPollEvents()

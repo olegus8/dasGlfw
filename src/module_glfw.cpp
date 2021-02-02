@@ -19,16 +19,44 @@ using namespace das;
 
 #endif
 
-struct GlfwCallbackFnAnnotation : ManagedValueAnnotation<void *> {
-    GlfwCallbackFnAnnotation ( const char * name, const char * cppName )
-        : ManagedValueAnnotation<void *>(name,cppName) {
+namespace das {
+
+    struct GlswCB {
+        Lambda      lambda;
+        Context *   context = nullptr;
     };
-};
+
+    struct GlswCallbacks {
+        GlswCB  keyCB;
+    };
+
+    static das_map<GLFWwindow *, GlswCallbacks>   g_Callbacks;
+
+    void DasGlfw_KeyFunction ( GLFWwindow* window, int keyCode, int scanCode, int action, int modes ) {
+        auto & cb = g_Callbacks[window].keyCB;
+        if ( cb.context ) {
+            das_invoke_lambda<void>::invoke<GLFWwindow *,int,int,int,int>(cb.context,cb.lambda,
+                window,keyCode,scanCode,action,modes);
+        }
+    }
+
+    void DasGlfw_SetKeyCallback ( GLFWwindow * window, TLambda<void,const GLFWwindow*,int,int,int,int> func, Context * ctx ) {
+        glfwSetKeyCallback(window,DasGlfw_KeyFunction);
+        g_Callbacks[window].keyCB = { func, ctx };
+    }
+
+    void DasGlfw_Shutdown() {
+        g_Callbacks.clear();
+    }
+}
 
 // making custom builtin module
 class Module_glfw : public Module {
     ModuleLibrary lib;
 public:
+    virtual ~Module_glfw() {
+        DasGlfw_Shutdown();
+    }
     Module_glfw() : Module("glfw") {
         // make basic module
         lib.addModule(this);
@@ -37,6 +65,9 @@ public:
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWmonitor", "GLFWmonitor",1,1));
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWwindow", "GLFWwindow",1,1));
         addAnnotation(make_smart<DummyTypeAnnotation>("GLFWcursor", "GLFWcursor",1,1));
+        // callbacks
+        addExtern<DAS_BIND_FUN(DasGlfw_SetKeyCallback)>(*this,lib,"glfwSetKeyCallback",
+            SideEffects::worstDefault,"DasGlfw_SetKeyCallback");
     }
     bool initialized = false;
     virtual bool initDependencies() override {
