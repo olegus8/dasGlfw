@@ -1,5 +1,4 @@
-require glfw
-require daslib/safe_addr
+require daslib/glfw_boost
 require daslib/defer
 require math
 
@@ -34,17 +33,15 @@ def glfw_app ( title:string; blk : block<(w,h:int):void> )
     while glfwWindowShouldClose(window)==0
         glfwPollEvents()
         var display_w, display_h : int
-        glfwGetFramebufferSize(window, safe_addr(display_w), safe_addr(display_h))
+        glfwGetFramebufferSize(window, display_w, display_h)
         invoke(blk, display_w, display_h)
         glfwMakeContextCurrent(window)
         glfwSwapBuffers(window)
-
 
 def glBeginEnd(prim:uint;blk:block)
     glBegin(prim)
     invoke(blk)
     glEnd()
-
 
 def gluPerspective(fovy,aspectRatio,znear,zfar:double)
     var ymax = znear * tan(fovy/2.0lf)
