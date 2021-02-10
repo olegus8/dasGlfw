@@ -32,6 +32,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 			${DAS_GLFW_DIR}/src/module_glfw
 			${DAS_GLFW_DIR}/src
 			${glfw_INCLUDE_DIR}
+			${DAS_GLFW_DIR}/src/glfw_consts.h
 			${GL_H}
 		)
 	ENDIF()
