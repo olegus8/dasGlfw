@@ -25,6 +25,11 @@ IF(NOT DAS_GLFW_INCLUDED)
 		SETUP_CPP11(libDasModuleGlfw)
 		# GENERATED GLFW
 		FIND_FILE(GL_H "GL/gl.h")
+		FIND_FILE(GLFW_H "GLFW/glfw3.h")
+        SET(DAS_GLFW_CONSTS
+            ${GL_H}
+            ${GLFW_H}
+        )
 		CPP_BIND_AST(
 			GLFW_GENERATE
 			generate_glfw.das
@@ -32,8 +37,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 			${DAS_GLFW_DIR}/src/module_glfw
 			${DAS_GLFW_DIR}/src
 			${glfw_INCLUDE_DIR}
-			${DAS_GLFW_DIR}/src/glfw_consts.h
-			${GL_H}
+			"${DAS_GLFW_CONSTS}"
 		)
 	ENDIF()
 ENDIF()
