@@ -7,9 +7,8 @@ IF(NOT DAS_GLFW_INCLUDED)
     LIST(APPEND CMAKE_MODULE_PATH ${DAS_GLFW_DIR})
 
     FIND_PACKAGE(glfw3)
-    FIND_PACKAGE(OpenGL CONFIG)
 
-	IF(NOT glfw3_FOUND OR NOT OpenGL_FOUND)
+	IF(NOT glfw3_FOUND)
 		MESSAGE(STATUS "GLFW3 not found. Not building dasGlfw.")
 	ELSE()
 		# libDasModuleGlfw
