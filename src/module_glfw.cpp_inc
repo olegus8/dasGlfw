@@ -50,7 +50,3 @@ struct GLFWimage_GeneratedAnnotation : ManagedStructureAnnotation<GLFWimage> {
 		addField<DAS_BIND_MANAGED_FIELD(pixels)>("pixels","pixels");
 	}
 };
-// ------------
-// functions
-// ------------
-
