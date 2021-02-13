@@ -131,9 +131,11 @@ class Module_glfw : public Module {
     ModuleLibrary lib;
 public:
     virtual ~Module_glfw() {
+        cerr << "module_glfw_debug : dtor\n";
         DasGlfw_Shutdown();
     }
     Module_glfw() : Module("glfw") {
+        cerr << "module_glfw_debug : ctor\n";
         // make basic module
         lib.addModule(this);
         lib.addBuiltInModule();
@@ -159,9 +161,12 @@ public:
     }
     bool initialized = false;
     virtual bool initDependencies() override {
+        cerr << "module_glfw_debug : initDependencies\n";
         if ( initialized ) return true;
+        cerr << "module_glfw_debug : initDependencies first time\n";
         initialized = true;
 #if USE_GENERATED
+        cerr << "module_glfw_debug : initDependencies use generated\n";
 #include "module_glfw.const_inc"
 #include "module_glfw.inc"
 #endif
