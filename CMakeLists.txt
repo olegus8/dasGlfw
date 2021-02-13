@@ -9,8 +9,10 @@ IF(NOT DAS_GLFW_INCLUDED)
     FIND_PACKAGE(glfw3)
     FIND_PACKAGE(opengl)
 
-	IF(NOT glfw3_FOUND OR NOT opengl_FOUND)
+	IF(NOT glfw3_FOUND)
 		MESSAGE(STATUS "GLFW3 not found. Not building dasGlfw.")
+	ELSEIF(NOT OpenGL_FOUND)
+		MESSAGE(STATUS "OpenGL not found. Not building dasGlfw.")
 	ELSE()
 		# libDasModuleGlfw
 		SET(DAS_GLFW_MODULE_SRC
@@ -26,8 +28,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 		SETUP_CPP11(libDasModuleGlfw)
 		# GENERATED GLFW
         MESSAGE(STATUS "glfw_INCLUDE_DIR=${glfw_INCLUDE_DIR}")
-        MESSAGE(STATUS "opengl_INCLUDE_DIR=${opengl_INCLUDE_DIR}")
-        MESSAGE(STATUS "opengl_INCLUDE_DIRS=${opengl_INCLUDE_DIRS}")
+        MESSAGE(STATUS "OpenGL_INCLUDE_DIR=${OpenGL_INCLUDE_DIR}")
         FIND_FILE(GL_H "GL/gl.h" REQUIRED)
 		FIND_FILE(GLFW_H "GLFW/glfw3.h" PATHS ENV INCLUDE REQUIRED)
         SET(DAS_GLFW_CONSTS
