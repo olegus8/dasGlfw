@@ -11,10 +11,27 @@ IF(NOT DAS_GLFW_INCLUDED)
 	IF(NOT glfw3_FOUND)
 		MESSAGE(STATUS "GLFW3 not found. Not building dasGlfw.")
 	ELSE()
+		# GENERATED GLFW
+        SET(DAS_GLFW_CONSTS
+            "${glfw_INCLUDE_DIR}/GLFW/glfw3.h"
+        )
+        SET(DAS_GLFW_GENERATED_SRC)
+		CPP_BIND_AST(
+			GLFW_GENERATE
+			DAS_GLFW_GENERATED_SRC
+			generate_glfw.das
+			${DAS_GLFW_DIR}/src/glfw_headers.h
+			${DAS_GLFW_DIR}/src/module_glfw
+			${DAS_GLFW_DIR}/src
+			${glfw_INCLUDE_DIR}
+			"${DAS_GLFW_CONSTS}"
+		)
 		# libDasModuleGlfw
 		SET(DAS_GLFW_MODULE_SRC
 			${DAS_GLFW_DIR}/src/module_glfw.cpp
+            ${DAS_GLFW_GENERATED_SRC}
 		)
+
 		ADD_MODULE_LIB(libDasModuleGlfw)
 		ADD_MODULE_CPP(glfw)
 		ADD_MODULE_NATIVE(glfw_boost)
@@ -23,18 +40,5 @@ IF(NOT DAS_GLFW_INCLUDED)
 		ADD_DEPENDENCIES(libDasModuleGlfw libDaScript)
 		TARGET_INCLUDE_DIRECTORIES(libDasModuleGlfw PUBLIC ${glfw_INCLUDE_DIR})
 		SETUP_CPP11(libDasModuleGlfw)
-		# GENERATED GLFW
-        SET(DAS_GLFW_CONSTS
-            "${glfw_INCLUDE_DIR}/GLFW/glfw3.h"
-        )
-		CPP_BIND_AST(
-			GLFW_GENERATE
-			generate_glfw.das
-			${DAS_GLFW_DIR}/src/glfw_headers.h
-			${DAS_GLFW_DIR}/src/module_glfw
-			${DAS_GLFW_DIR}/src
-			${glfw_INCLUDE_DIR}
-			"${DAS_GLFW_CONSTS}"
-		)
 	ENDIF()
 ENDIF()
