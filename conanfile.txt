@@ -1,5 +1,6 @@
 [requires]
 glfw/3.3.2
+opengl/system
 
 [generators]
 cmake_find_package
