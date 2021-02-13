@@ -7,7 +7,10 @@ IMPLEMENT_EXTERNAL_TYPE_FACTORY(GLFWmonitor,GLFWmonitor);
 IMPLEMENT_EXTERNAL_TYPE_FACTORY(GLFWwindow,GLFWwindow);
 IMPLEMENT_EXTERNAL_TYPE_FACTORY(GLFWcursor,GLFWcursor);
 
+#include <iostream>
+
 using namespace das;
+using namespace std;
 
 #define USE_GENERATED   1
 
