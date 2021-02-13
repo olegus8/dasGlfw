@@ -14,7 +14,6 @@ IF(NOT DAS_GLFW_INCLUDED)
 		# libDasModuleGlfw
 		SET(DAS_GLFW_MODULE_SRC
 			${DAS_GLFW_DIR}/src/module_glfw.cpp
-			${DAS_GLFW_DIR}/src/module_glfw.cpp_inc
 		)
 		ADD_MODULE_LIB(libDasModuleGlfw)
 		ADD_MODULE_CPP(glfw)
