@@ -21,7 +21,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 		ADD_MODULE_NATIVE(glfw_boost)
 		ADD_LIBRARY(libDasModuleGlfw ${DAS_GLFW_MODULE_SRC})
 		TARGET_LINK_LIBRARIES(libDasModuleGlfw ${glfw_LIBRARIES})
-		ADD_DEPENDENCIES(libDasModuleGlfw libDaScript libDasModuleGlfw)
+		ADD_DEPENDENCIES(libDasModuleGlfw libDaScript)
 		TARGET_INCLUDE_DIRECTORIES(libDasModuleGlfw PUBLIC
             ${glfw_INCLUDE_DIR}
             ${OPENGL_INCLUDE_DIR}
