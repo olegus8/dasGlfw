@@ -27,7 +27,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 		TARGET_INCLUDE_DIRECTORIES(libDasModuleGlfw PUBLIC ${glfw_INCLUDE_DIR})
 		SETUP_CPP11(libDasModuleGlfw)
 
-        FIND_FILE(GL_H "gl/gl.h")
+        FIND_FILE(GL_H "GL/gl.h")
 
 		# GENERATED GLFW
         SET(DAS_GLFW_CONSTS
