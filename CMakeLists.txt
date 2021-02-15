@@ -34,7 +34,7 @@ IF(NOT DAS_GLFW_INCLUDED)
             "${glfw_INCLUDE_DIR}/GLFW/glfw3.h"
             "${GL_H}"
         )
-        MESSAGE(STATUS "DAS_GLFW_CONSTS=${DAS_GLFW_CONSTS}"
+        MESSAGE(STATUS "DAS_GLFW_CONSTS=${DAS_GLFW_CONSTS}")
         MESSAGE(FATAL_ERROR "stopping intentionally")
 		CPP_BIND_AST(
 			GLFW_GENERATE
