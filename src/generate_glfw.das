@@ -44,8 +44,4 @@ def main
     bindHeaders(args[3], args[4])
 
     print("consts headers to bind: ${args[5]}\n")
-
-    for header in split(args[5], ";")
-        print("binding consts header ${header}\n")
-        genDefineConstants(header, args[4])
-
+    genDefineConstants(split(args[5], ";"), args[4])
