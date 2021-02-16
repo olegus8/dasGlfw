@@ -42,5 +42,6 @@ def main
     allow_extern_c = true
     var args <- get_command_line_arguments()
     bindHeaders(args[3], args[4])
-    genDefineConstants(args[5],args[4])
 
+    print("consts headers to bind: ${args[5]}\n")
+    genDefineConstants(split(args[5], ";"), args[4])

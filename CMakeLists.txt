@@ -31,11 +31,17 @@ IF(NOT DAS_GLFW_INCLUDED)
 		ADD_MODULE_NATIVE(glfw_boost)
 		ADD_LIBRARY(libDasModuleGlfw ${DAS_GLFW_MODULE_SRC})
 		TARGET_LINK_LIBRARIES(libDasModuleGlfw ${glfw_LIBRARIES})
-		ADD_DEPENDENCIES(libDasModuleGlfw libDaScript libDasModuleGlfw)
+		ADD_DEPENDENCIES(libDasModuleGlfw libDaScript)
 		TARGET_INCLUDE_DIRECTORIES(libDasModuleGlfw PUBLIC ${glfw_INCLUDE_DIR})
 		SETUP_CPP11(libDasModuleGlfw)
+
 		# GENERATED GLFW
-		FIND_FILE(GL_H "GL/gl.h")
+
+        FIND_FILE(GL_H "GL/gl.h")
+        SET(DAS_GLFW_CONSTS
+            "${glfw_INCLUDE_DIR}/GLFW/glfw3.h"
+            "${GL_H}"
+        )
 		CPP_BIND_AST(
 			GLFW_GENERATE
 			generate_glfw.das
@@ -43,7 +49,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 			${DAS_GLFW_DIR}/src/module_glfw
 			${DAS_GLFW_DIR}/src
 			${glfw_INCLUDE_DIR}
-			${GL_H}
+			"${DAS_GLFW_CONSTS}"
 		)
 	ENDIF()
 ENDIF()
