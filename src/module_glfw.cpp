@@ -9,14 +9,11 @@ IMPLEMENT_EXTERNAL_TYPE_FACTORY(GLFWcursor,GLFWcursor);
 
 using namespace das;
 
-#define USE_GENERATED   1
+#include "need_glfw.h"
 
 #if USE_GENERATED
-
 #include "module_glfw.h"
-
-#include "module_glfw.cpp_inc"
-
+#include "module_glfw.enum.cpp_inc"
 #endif
 
 namespace das {
@@ -127,53 +124,55 @@ namespace das {
 }
 
 // making custom builtin module
-class Module_glfw : public Module {
-    ModuleLibrary lib;
-public:
-    virtual ~Module_glfw() {
-        DasGlfw_Shutdown();
-    }
-    Module_glfw() : Module("glfw") {
-        // make basic module
-        lib.addModule(this);
-        lib.addBuiltInModule();
-        // dummies
-        addAnnotation(make_smart<DummyTypeAnnotation>("GLFWmonitor", "GLFWmonitor",1,1));
-        addAnnotation(make_smart<DummyTypeAnnotation>("GLFWwindow", "GLFWwindow",1,1));
-        addAnnotation(make_smart<DummyTypeAnnotation>("GLFWcursor", "GLFWcursor",1,1));
-        // callbacks
-        addExtern<DAS_BIND_FUN(DasGlfw_SetKeyCallback)>(*this,lib,"glfwSetKeyCallback",
-            SideEffects::worstDefault,"DasGlfw_SetKeyCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_SetCharCallback)>(*this,lib,"glfwSetCharCallback",
-            SideEffects::worstDefault,"DasGlfw_SetCharCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_SetCursorPosCallback)>(*this,lib,"glfwSetCursorPosCallback",
-            SideEffects::worstDefault,"DasGlfw_SetCursorPosCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_SetCursorEnterCallback)>(*this,lib,"glfwSetCursorEnterCallback",
-            SideEffects::worstDefault,"DasGlfw_SetCursorEnterCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_SetMouseButtonCallback)>(*this,lib,"glfwSetMouseButtonCallback",
-            SideEffects::worstDefault,"DasGlfw_SetMouseButtonCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_SetScrollCallback)>(*this,lib,"glfwSetScrollCallback",
-            SideEffects::worstDefault,"DasGlfw_SetScrollCallback");
-        addExtern<DAS_BIND_FUN(DasGlfw_DestroyWindow)>(*this,lib,"glfwDestroyWindow",
-            SideEffects::worstDefault,"DasGlfw_DestroyWindow");
-    }
-    bool initialized = false;
-    virtual bool initDependencies() override {
+
+Module_glfw::~Module_glfw() {
+    DasGlfw_Shutdown();
+}
+
+Module_glfw::Module_glfw() : Module("glfw") {
+    // make basic module
+    lib.addModule(this);
+    lib.addBuiltInModule();
+    // dummies
+    addAnnotation(make_smart<DummyTypeAnnotation>("GLFWmonitor", "GLFWmonitor",1,1));
+    addAnnotation(make_smart<DummyTypeAnnotation>("GLFWwindow", "GLFWwindow",1,1));
+    addAnnotation(make_smart<DummyTypeAnnotation>("GLFWcursor", "GLFWcursor",1,1));
+    // callbacks
+    addExtern<DAS_BIND_FUN(DasGlfw_SetKeyCallback)>(*this,lib,"glfwSetKeyCallback",
+        SideEffects::worstDefault,"DasGlfw_SetKeyCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_SetCharCallback)>(*this,lib,"glfwSetCharCallback",
+        SideEffects::worstDefault,"DasGlfw_SetCharCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_SetCursorPosCallback)>(*this,lib,"glfwSetCursorPosCallback",
+        SideEffects::worstDefault,"DasGlfw_SetCursorPosCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_SetCursorEnterCallback)>(*this,lib,"glfwSetCursorEnterCallback",
+        SideEffects::worstDefault,"DasGlfw_SetCursorEnterCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_SetMouseButtonCallback)>(*this,lib,"glfwSetMouseButtonCallback",
+        SideEffects::worstDefault,"DasGlfw_SetMouseButtonCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_SetScrollCallback)>(*this,lib,"glfwSetScrollCallback",
+        SideEffects::worstDefault,"DasGlfw_SetScrollCallback");
+    addExtern<DAS_BIND_FUN(DasGlfw_DestroyWindow)>(*this,lib,"glfwDestroyWindow",
+        SideEffects::worstDefault,"DasGlfw_DestroyWindow");
+}
+
+bool Module_glfw::initDependencies()  {
         if ( initialized ) return true;
         initialized = true;
+        initConst();
+        initAnnotations();
+        initFunctions();
 #if USE_GENERATED
-#include "module_glfw.const_inc"
-#include "module_glfw.inc"
+#include "module_glfw.enum.inc"
+#include "module_glfw.method.inc"
 #endif
         return true;
     }
-    virtual ModuleAotType aotRequire ( TextWriter & tw ) const override {
-        // add your stuff here
-        tw << "#include <GLFW/glfw3.h>\n";
-        // specifying AOT type, in this case direct cpp mode (and not hybrid mode)
-        return ModuleAotType::cpp;
-    }
-};
+
+ModuleAotType Module_glfw::aotRequire ( TextWriter & tw ) const {
+    // add your stuff here
+    tw << "#include <GLFW/glfw3.h>\n";
+    // specifying AOT type, in this case direct cpp mode (and not hybrid mode)
+    return ModuleAotType::cpp;
+}
 
 // registering module, so that its available via 'NEED_MODULE' macro
 REGISTER_MODULE(Module_glfw);

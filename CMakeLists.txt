@@ -13,10 +13,18 @@ IF(NOT DAS_GLFW_INCLUDED)
 	ELSE()
 		# libDasModuleGlfw
 		SET(DAS_GLFW_MODULE_SRC
-			${DAS_GLFW_DIR}/src/module_glfw.cpp
-			${DAS_GLFW_DIR}/src/module_glfw.cpp_inc
+			${DAS_GLFW_DIR}/src/need_glfw.h
+			${DAS_GLFW_DIR}/src/module_glfw.ann.cpp_inc
+			${DAS_GLFW_DIR}/src/module_glfw.ann.inc
 			${DAS_GLFW_DIR}/src/module_glfw.const_inc
+			${DAS_GLFW_DIR}/src/module_glfw.cpp
+			${DAS_GLFW_DIR}/src/module_glfw_ann.cpp
+			${DAS_GLFW_DIR}/src/module_glfw_const.cpp
+			${DAS_GLFW_DIR}/src/module_glfw_fun.cpp
+			${DAS_GLFW_DIR}/src/module_glfw.enum.cpp_inc
+			${DAS_GLFW_DIR}/src/module_glfw.enum.inc
 			${DAS_GLFW_DIR}/src/module_glfw.inc
+			${DAS_GLFW_DIR}/src/module_glfw.method.inc
 		)
 		ADD_MODULE_LIB(libDasModuleGlfw)
 		ADD_MODULE_CPP(glfw)
