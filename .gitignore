@@ -4,4 +4,4 @@ conaninfo.txt
 Findglfw3.cmake
 Findopengl_system.cmake
 graph_info.json
-src/glfw_headers.h.json
+src/glfw_headers.h.json*
