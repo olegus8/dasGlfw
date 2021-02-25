@@ -12,6 +12,7 @@ using namespace das;
 #include "need_glfw.h"
 
 #if USE_GENERATED
+#include "aot_glfw.h"
 #include "module_glfw.h"
 #include "module_glfw.enum.cpp_inc"
 #endif
@@ -170,6 +171,7 @@ bool Module_glfw::initDependencies()  {
 ModuleAotType Module_glfw::aotRequire ( TextWriter & tw ) const {
     // add your stuff here
     tw << "#include <GLFW/glfw3.h>\n";
+    tw << "#include \"../modules/dasGlfw/src/aot_glfw.h\"\n";
     // specifying AOT type, in this case direct cpp mode (and not hybrid mode)
     return ModuleAotType::cpp;
 }

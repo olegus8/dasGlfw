@@ -14,6 +14,7 @@ IF(NOT DAS_GLFW_INCLUDED)
 		# libDasModuleGlfw
 		SET(DAS_GLFW_MODULE_SRC
 			${DAS_GLFW_DIR}/src/need_glfw.h
+			${DAS_GLFW_DIR}/src/aot_glfw.h
 			${DAS_GLFW_DIR}/src/module_glfw.ann.cpp_inc
 			${DAS_GLFW_DIR}/src/module_glfw.ann.inc
 			${DAS_GLFW_DIR}/src/module_glfw.const_inc
