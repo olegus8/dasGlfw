@@ -12,6 +12,7 @@ using namespace das;
 #include "need_glfw.h"
 
 #if USE_GENERATED
+#define GLOBAL_NAMESPACE
 #include "aot_glfw.h"
 #include "module_glfw.h"
 #include "module_glfw.enum.cpp_inc"
