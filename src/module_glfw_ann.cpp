@@ -8,6 +8,7 @@ using namespace das;
 #include "need_glfw.h"
 
 #if USE_GENERATED
+#define GLOBAL_NAMESPACE
 #include "module_glfw.h"
 #include "module_glfw.ann.cpp_inc"
 #endif
